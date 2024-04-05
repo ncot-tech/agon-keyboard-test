@@ -27,7 +27,9 @@ int main()
 	uint8_t keys[4] = {0,0,0,0};
 	while (1) {
 		update_keys();
-		vdp_clear_screen();
+		putch(31); putch(0); putch(0);
+//		vdp_clear_screen();
+		
 		printf ("Agon Light 2 Keyboard multi-keypress test\n");
 		printf ("James Grimwood - https://ncot.uk 2024\n");
 		printf ("If this doesn't work, read the readme!\n");
@@ -41,10 +43,11 @@ int main()
 		keys[3] = IS_KEY_HELD(KEY_RIGHT);
 
 		printf ("Keys pressed: ");
-		if (keys[0]) printf ("[U] ");
-		if (keys[1]) printf ("[D] ");
-		if (keys[2]) printf ("[L] ");
-		if (keys[3]) printf ("[R] ");
+		if (keys[0]) printf ("[U] "); else printf("    ");
+		if (keys[1]) printf ("[D] "); else printf("    ");
+		if (keys[2]) printf ("[L] "); else printf("    ");
+		if (keys[3]) printf ("[R] "); else printf("    ");
+
 		printf ("\n\n");
 
 		printf ("Raw key data for the whole keyboard:\n");
